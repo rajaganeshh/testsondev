@@ -5,20 +5,22 @@
 <exec executable="cmd.exe">
 		<arg value ="/c" />
 		<arg value = "shutdown.bat"/>
-		<sleep seconds="20"/>
-	</exec>
+</exec>
+	<sleep seconds="20"/>
 </target>
 <target name="deploywar" depends="stopap">
 	<copy todir = "${cop}">
       <fileset dir="${srce}"/>
-	<sleep seconds="15"/>
+	
 	</copy>
+	<sleep seconds="15"/>
 </target>
 <target name="startap" depends="deploywar">
 	<exec executable="cmd.exe">
 		<arg value ="/c" />
 		<arg value = "startup.bat"/>
-		<sleep seconds="20"/>
+		
 	</exec>
+	<sleep seconds="20"/>
 </target>
 </project>
