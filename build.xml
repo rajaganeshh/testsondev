@@ -1,6 +1,6 @@
 <project name="JPetStore" default="stop-tomcat">
 <property name="tombin" value="D:\DevOps\apache-tomcat-7.0.56\bin"/>
-<property name="tom.jar" value="${tombin}/bootstrap.jar"/>
+<property name="tom.jar" value="${tombin}\bootstrap.jar"/>
 <property name="tomcat.jvmarg" value="-Dcatalina.home"/>
 <property name ="srce" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
