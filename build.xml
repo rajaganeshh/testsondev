@@ -9,7 +9,7 @@
 		<arg value="shutdown.bat"/>
 	</exec>
 </target>
-<target name="deployware" depends="deployware">
+<target name="deployware" depends="stopcat">
 <copy todir="${cop}">
       <fileset dir="${srce}"/>
 </copy>
