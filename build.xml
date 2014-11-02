@@ -1,29 +1,13 @@
-<project name="JPetStore" default="startap">
+<project name="JPetStore">
 
 <property name ="srce" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 
-<target name="stopap">
-<exec executable="cmd.exe">
-		<arg value ="/c" />
-		<arg value = "shutdown.bat"/>
-	</exec>
-	
-</target>
-
-<target name="deploywar" depends="stopap">
-<copy todir = "D:\DevOps\apache-tomcat-7.0.56\webapps">
+<target name="deploywar">
+<copy todir="D:\DevOps\apache-tomcat-7.0.56\webapps">
       <fileset dir="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 </copy>
 	
 </target>
 
-<target name="startap" depends="deploywar">
-	<exec executable="cmd.exe">
-		<arg value ="/c" />
-		<arg value = "startup.bat"/>
-	</exec>
-	
-	</target>
-	
 </project>
