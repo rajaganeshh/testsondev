@@ -3,12 +3,17 @@
 <property name ="srce" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 
-<target name="deployware">
-<copy todir="D:\DevOps\apache-tomcat-7.0.56\webapps">
+<target name="stopcat">
+	<exec executable="cmd">
+		<arg value="/c"/>
+		<arg value="shutdown.bat"/>
+	</exec>
+</target>
+<target name="deployware" depends="deployware">
+<copy todir="${cop}">
       <fileset dir="${srce}"/>
-     
 </copy>
-	
+<sleep seconds="10"/>	
 </target>
 
 </project>
