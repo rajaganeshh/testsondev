@@ -7,9 +7,8 @@
 	<arg value=" /c" />
 	<arg value="${tomcatbin}\shutdown.bat"/>
 </exec>
-	
-	<sleep seconds="20"/>
 </target>
+<sleep seconds="20"/>
 <target name="deploywar" depends="stopap">
 	<copy todir = "${cop}">
       <fileset dir="${srce}"/>
