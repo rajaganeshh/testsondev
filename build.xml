@@ -2,25 +2,25 @@
 <property name="tomcatbin" value="D:\DevOps\apache-tomcat-7.0.56\bin"/>
 <property name ="srce" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
-<target name="stopap">
-<exec executable="cmd"/>
-	<arg value=" /c" />
-	<arg value="shutdown.bat"/>
-</exec>
-</target>
 
+<target name="stopap">
+<exec executable="cmd.exe">
+		<arg value ="/c" />
+		<arg value = "shutdown.bat"/>
+		<sleep seconds="20"/>
+	</exec>
+</target>
 <target name="deploywar" depends="stopap">
 	<copy todir = "${cop}">
       <fileset dir="${srce}"/>
-	
+	<sleep seconds="15"/>
 	</copy>
-	
 </target>
 <target name="startap" depends="deploywar">
-	<exec executable="cmd"/>
-	<arg value="/c" />
-	<arg value="startup.bat"/>
-</exec>	
-
-</target>
+	<exec executable="cmd.exe">
+		<arg value ="/c" />
+		<arg value = "startup.bat"/>
+		<sleep seconds="20"/>
+	</exec>
+	</target>
 </project>
