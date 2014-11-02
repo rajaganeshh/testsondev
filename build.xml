@@ -1,0 +1,21 @@
+<project name="JPetStore" default="startap">
+<target name="stopap">
+<exec executable="cmd.exe">
+		<arg value ="/c" />
+		<arg value = "shutdown.bat"/>
+		<sleep seconds="20"/>
+	</exec>
+</target>
+<target name="deploywar" depends="stopap">
+	<copy todir = "${cop}">
+      <fileset dir="${wars}"/>
+	<sleep seconds="15"/>
+	</copy>
+</target>
+<target name="startap" depends="deploywar">
+	<exec executable="cmd.exe">
+		<arg value ="/c" />
+		<arg value = "startup.bat"/>
+		<sleep seconds="20"/>
+	</exec>
+</project>
