@@ -1,20 +1,22 @@
-<project name="JPetStore" default="stop-tomcat">
+<project name="JPetStore" default="start-tomcat">
 <property name="tombin" value="D:\DevOps\apache-tomcat-7.0.56\bin"/>
 <property name="tom.jar" value="${tombin}\bootstrap.jar"/>
 <property name="tomcat.jvmarg" value="-Dcatalina.home"/>
 <property name ="srce" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 
-<target name="stop-tomcat" description="Stops back-end tomcat server" depends="start-tomcat">
-    <java jar="${tom.jar}" fork="true" spawn="false">
-        <jvmarg value="${tomcat.jvmarg}=D:\DevOps\apache-tomcat-7.0.56" />
-        <arg line="stop" />
-    </java>
+<target name="stop-tomcat">
+<exec dir="${tombin}" executable="cmd">
+<arg value="/c"/>
+<arg value="shoutdown.bat"/>
+</exec>
     <echo>+---------------------------------+</echo>
     <echo>|   T O M C A T   S T O P P E D   |</echo>
     <echo>+---------------------------------+</echo>
+    <sleep seconds="30"/>
+    <echo>Sleep</echo>
 </target>
-<target name="deployware">
+<target name="deployware" depends="stop-tomcat">
 <copy todir="${cop}" overwrite="yes">
       <fileset dir="${srce}"/>
 </copy>
@@ -25,7 +27,12 @@
  <exec dir="${tombin}" executable="cmd">
  <arg value="/c"/>
 <arg value="startup.bat"/>  
- </exec>  
+ </exec>
+ <sleep seconds="30"/>
+ <echo>+---------------------------------+</echo>
+    <echo>|   T O M C A T   S T A R T I N G   |</echo>
+    <echo>+---------------------------------+</echo>
+    
 </target> 
 
 </project>
