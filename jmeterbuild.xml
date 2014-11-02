@@ -1,0 +1,43 @@
+
+<project name="Performance Testing for my project" basedir="D:\DevOps\apache-jmeter-2.11" default="main">
+
+  <target name="clean" >
+    <delete includeemptydirs="false">    
+      <fileset dir="D:\jmxtojtl" excludes="**/PerformanceCharts.html"/>
+    </delete>
+  </target>
+
+  <target name="run-jmeter" depends="clean" >
+    <taskdef name="jmeter" classpath="D:\DevOps\apache-jmeter-2.11\extras\ant-jmeter-1.1.1.jar"
+classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
+      <jmeter
+            jmeterhome="D:\DevOps\apache-jmeter-2.11"
+            resultlog="D:\jmxtojtl\JMeterResults.xml">
+      
+<property name="jmeter.save.saveservice.assertion_results" value="all"/>
+        <property name="jmeter.save.saveservice.output_format" value="xml"/>
+
+<jvmarg value="-Xincgc"/>
+    <jvmarg value="-Xmx128m"/>
+    <jvmarg value="-Dproperty=value"/>
+      <property name="request.threads" value="5"/>
+      <property name="request.loop" value="10"/>
+<testplans dir="D:\jenkinsjmx" includes="*.jmx"/>
+    </jmeter>
+  </target>
+<property name="lib.dir" value="${jmeter-home}/lib"/>
+
+    <!-- Use xalan copy from JMeter lib directory to ensure consistent processing with Java 1.4+ -->
+    <path id="xslt.classpath">
+        <fileset dir="${basedir}\lib" includes="xalan*.jar"/>
+        <fileset dir="${basedir}\lib" includes="serializer*.jar"/>
+    </path>
+  <target name="create-reports" depends="run-jmeter">
+    <xslt
+            in="D:\jmxtojtl\JMeterResults.xml"
+            out="D:\jmxtojtl\JMeterRe.html"
+            style="${basedir}\extras\jmeter-results-detail-report_21.xsl"/>
+  </target> 
+
+  <target name="main" depends="clean,run-jmeter,create-reports"/>
+</project>
