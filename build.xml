@@ -2,7 +2,10 @@
 <property name ="srce" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 <target name="stopap">
-<exec executable="shutdown.bat"/>
+<exec executable="cmd"/>
+	<arg value=" /c" />
+	<arg value="shutdown.bat"/>
+</exec>
 	
 	<sleep seconds="20"/>
 </target>
@@ -13,9 +16,11 @@
 	</copy>
 	<sleep seconds="15"/>
 </target>
-<target name="startap" depeexecutablens="deploywar">
+<target name="startap" executable="deploywar">
 	<exec executable="startup.bat"/>
-	
+	<arg value=" /c" />
+	<arg value="startup.bat"/>
+</exec>	
 	<sleep seconds="20"/>
 </target>
 </project>
