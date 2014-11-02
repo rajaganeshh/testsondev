@@ -5,8 +5,8 @@
 
 <target name="deployware">
 <copy todir="D:\DevOps\apache-tomcat-7.0.56\webapps">
-      <fileset dir="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
-      <include name="*.*"/>
+      <fileset dir="D:\updates"/>
+     
 </copy>
 	
 </target>
