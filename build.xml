@@ -21,4 +21,11 @@
 <sleep seconds="10"/>	
 </target>
 
+<target name="start-tomcat" depends="deployware">  
+ <exec dir="${tombin}" executable="cmd">
+ <arg value="/c"/>
+<arg value="startup.bat"/>  
+ </exec>  
+</target> 
+
 </project>
