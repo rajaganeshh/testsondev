@@ -35,7 +35,7 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
   <target name="create-reports" depends="run-jmeter">
     <xslt
             in="D:\jmxtojtl\JMeterResults.xml"
-            out="D:\jmxtojtl\JMeterRe.html"
+            out="D:\jmxtojtl\JMeterResult.html"
             style="${basedir}\extras\jmeter-results-detail-report_21.xsl"/>
   </target> 
 
