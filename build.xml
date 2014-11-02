@@ -3,6 +3,7 @@
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 <target name="stopap">
 <exec executable="shutdown.bat"/>
+	
 	<sleep seconds="20"/>
 </target>
 <target name="deploywar" depends="stopap">
@@ -12,8 +13,8 @@
 	</copy>
 	<sleep seconds="15"/>
 </target>
-<target name="startap" depends="deploywar">
-	<exec = "startup.bat"/>
+<target name="startap" depeexecutablens="deploywar">
+	<exec executable="startup.bat"/>
 	
 	<sleep seconds="20"/>
 </target>
