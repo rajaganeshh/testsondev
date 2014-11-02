@@ -30,7 +30,7 @@
  </exec>
  <sleep seconds="30"/>
  <echo>+---------------------------------+</echo>
-    <echo>|   T O M C A T   S T A R T I N G   |</echo>
+    <echo>|   T O M C A T   S T A R T E D   |</echo>
     <echo>+---------------------------------+</echo>
  
 </target> 
