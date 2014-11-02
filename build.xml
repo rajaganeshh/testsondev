@@ -20,4 +20,5 @@
 		<arg value = "startup.bat"/>
 		<sleep seconds="20"/>
 	</exec>
+</target>
 </project>
