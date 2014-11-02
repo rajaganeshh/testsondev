@@ -1,4 +1,4 @@
-<project environment="env" name="JPetStore" default="startap">
+<project name="JPetStore" default="startap">
 <property name ="srce" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 <target name="stopap">
