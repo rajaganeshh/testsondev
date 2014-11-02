@@ -1,11 +1,11 @@
 <project name="JPetStore" default="deployware">
 
-<property name ="srce" value="C:\Program Files (x86)"/>
+<property name ="srce" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 
 <target name="deployware">
 <copy todir="D:\DevOps\apache-tomcat-7.0.56\webapps">
-      <fileset dir="${srce}\Jenkins\jobs\azuretest\workspace\build\wars"/>
+      <fileset dir="${srce}"/>
      
 </copy>
 	
