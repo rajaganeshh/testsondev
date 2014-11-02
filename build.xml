@@ -8,7 +8,7 @@
 <target name="stop-tomcat">
 <exec dir="${tombin}" executable="cmd">
 <arg value="/c"/>
-<arg value="shoutdown.bat"/>
+<arg value="shutdown.bat"/>
 </exec>
     <echo>+---------------------------------+</echo>
     <echo>|   T O M C A T   S T O P P E D   |</echo>
