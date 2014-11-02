@@ -1,11 +1,8 @@
-<project name="JPetStore" default="startap">
+<project environment="env" name="JPetStore" default="startap">
 <property name ="srce" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 <target name="stopap">
-<exec executable="cmd.exe">
-		<arg value ="/c" />
-		<arg value = "shutdown.bat"/>
-</exec>
+<exec executable="shutdown.bat"/>
 	<sleep seconds="20"/>
 </target>
 <target name="deploywar" depends="stopap">
@@ -16,11 +13,8 @@
 	<sleep seconds="15"/>
 </target>
 <target name="startap" depends="deploywar">
-	<exec executable="cmd.exe">
-		<arg value ="/c" />
-		<arg value = "startup.bat"/>
-		
-	</exec>
+	<exec = "startup.bat"/>
+	
 	<sleep seconds="20"/>
 </target>
 </project>
