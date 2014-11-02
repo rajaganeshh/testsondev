@@ -1,13 +1,18 @@
 <project name="JPetStore" default="stopcat">
 <property name="tombin" value="D:\DevOps\apache-tomcat-7.0.56\bin"/>
+<property name="tom.jar" value="${tombin}/bootstrap.jar"/>
+<property name="tomcat.jvmarg" value"=-Dcatalina.home"/>
 <property name ="srce" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 
-<target name="stopcat" depends="deployware">
-	<exec executable="cmd">
-		<arg value="/c"/>
-		<arg value="${tombin}\shutdown.bat"/>
-	</exec>
+<target name="stop-tomcat" description="Stops back-end tomcat server" depends="prepare">
+    <java jar="${tom.jar}" fork="true" spawn="false">
+        <jvmarg value="${tomcat.jvmarg}=D:\DevOps\apache-tomcat-7.0.56" />
+        <arg line="stop" />
+    </java>
+    <echo>+---------------------------------+</echo>
+    <echo>|   T O M C A T   S T O P P E D   |</echo>
+    <echo>+---------------------------------+</echo>
 </target>
 <target name="deployware">
 <copy todir="${cop}" overwrite="yes">
