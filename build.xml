@@ -1,9 +1,9 @@
-<project name="JPetStore" default="deployware">
+<project name="JPetStore" default="stopcat">
 <property name="tombin" value="D:\DevOps\apache-tomcat-7.0.56\bin"/>
 <property name ="srce" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 
-<target name="stopcat" depends>
+<target name="stopcat" depends="deployware">
 	<exec executable="cmd">
 		<arg value="/c"/>
 		<arg value="${tombin}\shutdown.bat"/>
