@@ -10,7 +10,7 @@
 </target>
 <target name="deploywar" depends="stopap">
 	<copy todir = "${cop}">
-      <fileset dir="${wars}"/>
+      <fileset dir="${srce}"/>
 	<sleep seconds="15"/>
 	</copy>
 </target>
