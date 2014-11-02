@@ -5,7 +5,7 @@
 <target name="stopap">
 <exec executable="cmd"/>
 	<arg value=" /c" />
-	<arg value="${tomcatbin}\shutdown.bat"/>
+	<arg value="shutdown.bat"/>
 </exec>
 </target>
 <sleep seconds="20"/>
@@ -18,8 +18,8 @@
 </target>
 <target name="startap" depends="deploywar">
 	<exec executable="cmd"/>
-	<arg value=" /c" />
-	<arg value="${tomcatbin}\startup.bat"/>
+	<arg value="/c" />
+	<arg value="startup.bat"/>
 </exec>	
 	<sleep seconds="20"/>
 </target>
