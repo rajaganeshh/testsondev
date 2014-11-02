@@ -1,10 +1,11 @@
 <project name="JPetStore" default="startap">
+<property name="tomcatbin" value="D:\DevOps\apache-tomcat-7.0.56\bin"
 <property name ="srce" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 <target name="stopap">
 <exec executable="cmd"/>
 	<arg value=" /c" />
-	<arg value="shutdown.bat"/>
+	<arg value="${tomcatbin}\shutdown.bat"/>
 </exec>
 	
 	<sleep seconds="20"/>
@@ -16,10 +17,10 @@
 	</copy>
 	<sleep seconds="15"/>
 </target>
-<target name="startap" executable="deploywar">
-	<exec executable="startup.bat"/>
+<target name="startap" depends="deploywar">
+	<exec executable="cmd"/>
 	<arg value=" /c" />
-	<arg value="startup.bat"/>
+	<arg value="${tomcatbin}\startup.bat"/>
 </exec>	
 	<sleep seconds="20"/>
 </target>
