@@ -5,7 +5,7 @@
 <property name ="srce" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\azuretest\workspace\build\wars"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
 
-<target name="stop-tomcat" description="Stops back-end tomcat server">
+<target name="stop-tomcat" description="Stops back-end tomcat server" depend="start-tomcat">
     <java jar="${tom.jar}" fork="true" spawn="false">
         <jvmarg value="${tomcat.jvmarg}=D:\DevOps\apache-tomcat-7.0.56" />
         <arg line="stop" />
@@ -14,7 +14,7 @@
     <echo>|   T O M C A T   S T O P P E D   |</echo>
     <echo>+---------------------------------+</echo>
 </target>
-<target name="deployware"  depends="stop-tomcat">
+<target name="deployware">
 <copy todir="${cop}" overwrite="yes">
       <fileset dir="${srce}"/>
 </copy>
