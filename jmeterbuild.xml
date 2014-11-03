@@ -38,6 +38,16 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
             out="D:\jmxtojtl\JMeterResult.html"
             style="${basedir}\extras\jmeter-results-detail-report_21.xsl"/>
   </target> 
+<property name ="desn" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\PerformanceTest\workspace"/>
+<property name ="srcln" value="D:\jmxtojtl"/>
+  <target name="copy-report" depends="create-reports">
+      <copy todir = "${desn}">
+      <fileset dir="${srcln}"/>
+      <include name="*.html"/>
+      
+	<sleep seconds="5"/>
+	</copy>
+  </target>
 
   <target name="main" depends="clean,run-jmeter,create-reports"/>
 </project>
