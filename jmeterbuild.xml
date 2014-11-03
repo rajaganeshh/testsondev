@@ -41,7 +41,7 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
 <property name ="desn" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\PerformanceTest\workspace"/>
 <property name ="srcln" value="D:\jmxtojtl"/>
   <target name="copy-report" depends="create-reports">
-      <copy todir = "${desn}">
+      <copy todir = "${desn}" overwrite="yes">
       <fileset dir="${srcln}"/>
       <include name="*.html"/>
       
