@@ -39,10 +39,15 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
             style="${basedir}\extras\jmeter-results-detail-report_21.xsl"/>
   </target> 
 <property name ="desn" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\PerformanceTest\workspace"/>
-<property name ="srcln" value="D:\jmxtojtl"/>
+<property name ="srcln1" value="D:\jmxtojtl"/>
+<property name ="srcln" value="D:\DevOps\seleniumtestcase"/>
   <target name="copy-report" depends="create-reports">
       <copy todir = "${desn}" overwrite="yes">
       <fileset dir="${srcln}"/>
+      	
+	</copy>
+	<copy todir = "${desn}" overwrite="yes">
+      <fileset dir="${srcln1}"/>
       	
 	</copy>
 	<sleep seconds="5"/>
