@@ -43,8 +43,9 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
   <target name="copy-report" depends="create-reports">
       <copy todir = "${desn}" overwrite="yes">
       <fileset dir="${srcln}"/>
-      	<sleep seconds="5"/>
+      	
 	</copy>
+	<sleep seconds="5"/>
   </target>
 
   <target name="main" depends="clean,run-jmeter,create-reports,copy-report"/>
