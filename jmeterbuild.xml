@@ -43,9 +43,7 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
   <target name="copy-report" depends="create-reports">
       <copy todir = "${desn}" overwrite="yes">
       <fileset dir="${srcln}"/>
-      <include name="*.html"/>
-      
-	<sleep seconds="5"/>
+      	<sleep seconds="5"/>
 	</copy>
   </target>
 
