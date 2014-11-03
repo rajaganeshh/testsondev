@@ -49,5 +49,5 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
 	</copy>
   </target>
 
-  <target name="main" depends="clean,run-jmeter,create-reports"/>
+  <target name="main" depends="clean,run-jmeter,create-reports,copy-report"/>
 </project>
