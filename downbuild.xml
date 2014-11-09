@@ -1,0 +1,34 @@
+<project name="JPetStore" default="start-tomcat">
+<property name="tombin" value="D:\DevOps\apache-tomcat-7.0.56\bin"/>
+<property name="tom.jar" value="${tombin}\bootstrap.jar"/>
+<property name="tomcat.jvmarg" value="-Dcatalina.home"/>
+<property name ="srce"  value="jpetstore.war"/>
+<property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps" />
+<target name="stop-tomcat">
+<exec dir="${tombin}" executable="cmd">
+<arg value="/c"/>
+<arg value="shutdown.bat"/>
+</exec>
+<echo>+---------------------------------+</echo>
+<echo>| T O M C A T S T O P P E D |</echo>
+<echo>+---------------------------------+</echo>
+<sleep seconds="30"/>
+<echo>Sleep</echo>
+</target>
+<target name="deployware" depends="stop-tomcat">
+<copy todir="${cop}" overwrite="yes">
+<file file="${srce}"/>
+</copy>
+<sleep seconds="10"/>
+</target>
+<target name="start-tomcat" depends="deployware">
+<exec dir="${tombin}" executable="cmd">
+<arg value="/c"/>
+<arg value="startup.bat"/>
+</exec>
+<sleep seconds="30"/>
+<echo>+---------------------------------+</echo>
+<echo>| T O M C A T S T A R T E D |</echo>
+<echo>+---------------------------------+</echo>
+</target>
+</project>
