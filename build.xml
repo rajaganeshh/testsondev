@@ -2,8 +2,8 @@
 <property name="tombin" value="D:\DevOps\apache-tomcat-7.0.56\bin"/>
 <property name="tom.jar" value="${tombin}\bootstrap.jar"/>
 <property name="tomcat.jvmarg" value="-Dcatalina.home"/>
-<property name ="srce" location="directory" value="d:\created"/>
-<property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps"/>
+<property name ="srce" location="directory" value="D:\created"/>
+<property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps" />
 
 <target name="stop-tomcat">
 <exec dir="${tombin}" executable="cmd">
