@@ -3,7 +3,7 @@
 
   <target name="clean" >
     <delete includeemptydirs="false">    
-      <fileset dir="D:\jmxtojtl" excludes="**/PerformanceCharts.html"/>
+      <fileset dir="D:\DevOps\jmxtojtl" excludes="**/PerformanceCharts.html"/>
     </delete>
   </target>
 
@@ -12,7 +12,7 @@
 classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
       <jmeter
             jmeterhome="D:\DevOps\apache-jmeter-2.11"
-            resultlog="D:\jmxtojtl\JMeterResults.xml">
+            resultlog="D:\DevOps\jmxtojtl\JMeterResults.xml">
       
 <property name="jmeter.save.saveservice.assertion_results" value="all"/>
         <property name="jmeter.save.saveservice.output_format" value="xml"/>
@@ -22,7 +22,7 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
     <jvmarg value="-Dproperty=value"/>
       <property name="request.threads" value="5"/>
       <property name="request.loop" value="10"/>
-<testplans dir="D:\jenkinsjmx" includes="*.jmx"/>
+	<testplans dir="D:\DevOps\jmeterjmx" includes="*.jmx"/>
     </jmeter>
   </target>
 <property name="lib.dir" value="${jmeter-home}/lib"/>
@@ -34,13 +34,13 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
     </path>
   <target name="create-reports" depends="run-jmeter">
     <xslt
-            in="D:\jmxtojtl\JMeterResults.xml"
-            out="D:\jmxtojtl\JMeterResult.html"
+            in="D:\DevOps\jmxtojtl\JMeterResults.xml"
+            out="D:\DevOps\jmxtojtl\JMeterResult.html"
             style="${basedir}\extras\jmeter-results-detail-report_21.xsl"/>
   </target> 
-<property name ="desn" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\PerformanceTest\workspace"/>
-<property name ="srcln1" value="D:\jmxtojtl"/>
-<property name ="srcln" value="D:\DevOps\seleniumtestcase"/>
+<property name ="desn" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\PerformanceTestwithJMeter\workspace"/>
+<property name ="srcln1" value="D:\DevOps\jmxtojtl"/>
+<property name ="srcln" value="D:\DevOps\jmeterjmx"/>
   <target name="copy-report" depends="create-reports">
       <copy todir = "${desn}" overwrite="yes">
       <fileset dir="${srcln}"/>
