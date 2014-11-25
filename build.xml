@@ -37,15 +37,15 @@
 </target> 
 
 
-<target name="tomcat-start">
+<target name="tomcat-start" depends="start-tomcat">
     <java jar="${tombin}/bootstrap.jar" fork="true">
-        <jvmarg value="-Dcatalina.home=${tomcat.home}"/>
+        <jvmarg value="-Dcatalina.home=${tombin}"/>
     </java>
 </target>
  
-<target name="tomcat-stop">
+<target name="tomcat-stop" depends="tomcat-start">
     <java jar="${tomcatbin}/bootstrap.jar" fork="true">
-        <jvmarg value="-Dcatalina.home=${tomcat.home}"/>
+        <jvmarg value="-Dcatalina.home=${tombin}"/>
         <arg line="stop"/>
     </java>
 </target>
