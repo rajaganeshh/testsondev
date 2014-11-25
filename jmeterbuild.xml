@@ -47,7 +47,7 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
       	
 	</copy>
 	<copy todir = "${desn}" overwrite="yes">
-      <fileset dir="${srcln1}"/>
+      <fileset dir="${srcln1}" includes="*.html"/>
       	
 	</copy>
 	<sleep seconds="5"/>
