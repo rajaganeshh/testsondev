@@ -6,7 +6,7 @@
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps" />
 
 <target name="stop-tomcat">
-<exec dir="${tombin}" executable="cmd">
+<exec executable="cmd">
 <arg value="/c"/>
 <arg value="shutdown.bat"/>
 </exec>
@@ -24,7 +24,7 @@
 </target>
 
 <target name="start-tomcat" depends="deployware">  
- <exec dir="${tombin}" executable="cmd">
+ <exec  executable="cmd">
  <arg value="/c"/>
 <arg value="startup.bat"/>  
  </exec>
