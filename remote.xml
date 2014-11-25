@@ -1,0 +1,8 @@
+<project name="remote" default="rem">
+<property name="power" value="C:\xampp\htdocs\ps" />
+<target name = "rem">
+<exec dir="${power}" executable="powershell">
+	<arg value ="./remotedeploy.ps1" />
+</exec>
+</target>
+</project>
