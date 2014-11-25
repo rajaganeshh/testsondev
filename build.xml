@@ -1,4 +1,4 @@
-<project name="JPetStore" default="start-tomcat, tomcat-start">
+<project name="JPetStore" default="start-tomcat">
 <property name="tombin" value="D:\DevOps\apache-tomcat-7.0.56\bin"/>
 <property name="tom.jar" value="${tombin}\bootstrap.jar"/>
 <property name="tomcat.jvmarg" value="-Dcatalina.home"/>
@@ -36,18 +36,5 @@
  
 </target> 
 
-
-<target name="tomcat-start" >
-    <java jar="${tombin}/bootstrap.jar" fork="true">
-        <jvmarg value="-Dcatalina.home=${tombin}"/>
-    </java>
-</target>
- 
-<target name="tomcat-stop" depends="tomcat-start">
-    <java jar="${tombin}/bootstrap.jar" fork="true">
-        <jvmarg value="-Dcatalina.home=${tombin}"/>
-        <arg line="stop"/>
-    </java>
-</target>
 
 </project>
