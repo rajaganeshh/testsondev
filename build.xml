@@ -4,7 +4,7 @@
 <property name="tomcat.jvmarg" value="-Dcatalina.home"/>
 <property name ="srce" location="directory" value="D:\created"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps" />
-<prpety environment ="env" />
+<property environment ="env" />
 
 <target name="stop-tomcat">
 <exec dir="${env.CATALINA_HOME}" executable="cmd" >
