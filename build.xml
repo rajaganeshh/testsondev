@@ -8,8 +8,8 @@
 
 <target name="stop-tomcat">
 <exec dir="${tombin}" executable="cmd" >
-    <arg value=" /c "/>
-    <arg value=" shutdown.bat "/>
+    <arg value="/c"/>
+    <arg value="shutdown.bat "/>
 </exec>
     <echo>+---------------------------------+</echo>
     <echo>|   T O M C A T   S T O P P E D   |</echo>
@@ -25,9 +25,9 @@
 </target>
 
 <target name="start-tomcat" depends="deployware">  
- <exec dir="${tombin}" executable="cmd " >
- <arg value=" /c " />
-<arg value=" startup.bat" />  
+ <exec dir="${tombin}" executable="cmd" >
+ <arg value="/c" />
+<arg value="startup.bat" />  
  </exec>
  <sleep seconds="30"/>
  <echo>+---------------------------------+</echo>
