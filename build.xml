@@ -4,9 +4,10 @@
 <property name="tomcat.jvmarg" value="-Dcatalina.home"/>
 <property name ="srce" location="directory" value="D:\created"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps" />
+<prpety environment ="env" />
 
 <target name="stop-tomcat">
-<exec dir="${CATALINA_HOME}" executable="cmd" >
+<exec dir="${env.CATALINA_HOME}" executable="cmd" >
     <arg value=" /c "/>
     <arg value=" shutdown.bat "/>
 </exec>
@@ -24,7 +25,7 @@
 </target>
 
 <target name="start-tomcat" depends="deployware">  
- <exec dir="${CATALINA_HOME}" executable="cmd " >
+ <exec dir="${env.CATALINA_HOME}" executable="cmd " >
  <arg value=" /c " />
 <arg value=" startup.bat" />  
  </exec>
@@ -34,5 +35,19 @@
     <echo>+---------------------------------+</echo>
  
 </target> 
+
+
+<target name="tomcat-start">
+    <java jar="${tombin}/bootstrap.jar" fork="true">
+        <jvmarg value="-Dcatalina.home=${tomcat.home}"/>
+    </java>
+</target>
+ 
+<target name="tomcat-stop">
+    <java jar="${tomcatbin}/bootstrap.jar" fork="true">
+        <jvmarg value="-Dcatalina.home=${tomcat.home}"/>
+        <arg line="stop"/>
+    </java>
+</target>
 
 </project>
