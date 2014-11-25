@@ -34,6 +34,11 @@
     <echo>|   T O M C A T   S T A R T E D   |</echo>
     <echo>+---------------------------------+</echo>
  
+ <exec dir="${tombin}" executable="start">
+    <arg line="startup.bat" />
+    <!--<env key="CATALINA_HOME" value="${tomcat.home}" />-->
+</exec>
+ 
 </target> 
 
 
