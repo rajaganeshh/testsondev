@@ -18,6 +18,8 @@
     <echo>Sleep</echo>
 </target>
 <target name="deployware" depends="stop-tomcat">
+<delete dir="${cop}\jpetstore"/>
+<delete file="${cop}\jpetstore.war"/>
 <copy todir="${cop}" overwrite="yes">
       <fileset dir="${srce}"/>
 </copy>
