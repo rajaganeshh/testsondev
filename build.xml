@@ -21,12 +21,15 @@
 <target name="deployware" depends="stop-tomcat">
 <delete dir="${cop}\jpetstore"/>
 <delete file="${cop}\${label}-jpetstore.war"/>
-<copy todir="${cop}" overwrite="yes">
+
+ <copy todir="${cop}" overwrite="yes">
       <fileset dir="${srce}">
       <include name="${label}-jpetstore.war" />
       </fileset>
 </copy>
-<rename src="${cop}\${label}-jpetstore.war" dest="${cop}\jpetstore.war"/>
+
+
+<rename src="${cop}\${label}-jpetstore" dest="${cop}\jpetstore"/>
 <sleep seconds="10"/>	
 </target>
 
