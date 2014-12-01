@@ -27,8 +27,8 @@
       <include name="${label}-jpetstore.war" />
       </fileset>
 </copy>
+<move file="${cop}\${label}-jpetstore.war" tofile="${cop}\jpetstore.war"/>
 
-<rename src="${cop}\${label}-jpetstore.war" dest="${cop}\jpetstore.war"/>
 <sleep seconds="10"/>	
 </target>
 
