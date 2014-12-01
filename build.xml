@@ -28,8 +28,7 @@
       </fileset>
 </copy>
 
-
-<rename src="${cop}\${label}-jpetstore" dest="${cop}\jpetstore"/>
+<rename src="${cop}\${label}-jpetstore.war" dest="${cop}\jpetstore.war"/>
 <sleep seconds="10"/>	
 </target>
 
