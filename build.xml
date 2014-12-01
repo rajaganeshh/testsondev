@@ -4,7 +4,8 @@
 <property name="tomcat.jvmarg" value="-Dcatalina.home"/>
 <property name ="srce" location="directory" value="D:\created"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps" />
-<property environment ="env" />
+<property environment="env"/>
+<property name="label" value="${env.BUILD_NUMBER}"/>
 
 <target name="stop-tomcat">
 <exec dir="${tombin}" executable="cmd" >
@@ -19,9 +20,11 @@
 </target>
 <target name="deployware" depends="stop-tomcat">
 <delete dir="${cop}\jpetstore"/>
-<delete file="${cop}\jpetstore.war"/>
+<delete file="${cop}\${label}-jpetstore.war"/>
 <copy todir="${cop}" overwrite="yes">
-      <fileset dir="${srce}"/>
+      <fileset dir="${srce}">
+      <include name="${label}-jpetstore.war" />
+      </fileset>
 </copy>
 <sleep seconds="10"/>	
 </target>
