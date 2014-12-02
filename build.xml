@@ -21,7 +21,7 @@
 <target name="deployware" depends="stop-tomcat">
 <delete dir="${cop}\jpetstore"/>
 <delete>
-    <fileset dir="{cop}" includes="*.*"/>
+    <fileset dir="${cop}" includes="*.*"/>
 </delete>
 
  <sleep seconds="10"/>	
