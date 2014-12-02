@@ -5,7 +5,7 @@
 <property name ="srce" location="directory" value="D:\created"/>
 <property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps" />
 <property environment="env"/>
-<property name="label" value="${env.BUILD_NUMBER}"/>
+<property name="label" value="${env.version}"/>
 
 <target name="stop-tomcat">
 <exec dir="${tombin}" executable="cmd" >
@@ -24,9 +24,9 @@
 
  <copy todir="${cop}" overwrite="yes">
       <fileset dir="${srce}"/>
-      
+  
 </copy>
-<move file="${cop}\*.war" tofile="${cop}\jpetstore.war"/>
+<move dir="${cop}\*-jpetstore" todir="${cop}\jpetstore"/>
 
 <sleep seconds="10"/>	
 </target>
