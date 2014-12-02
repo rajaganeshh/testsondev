@@ -20,8 +20,8 @@
 </target>
 <target name="deployware" depends="stop-tomcat">
 <delete dir="${cop}\jpetstore"/>
-<delete file="${cop}\*.war"/>
-<copy file="${srce}\*" tofile= "${cop}\jpetstore.war" />
+<delete file="${cop}\*.*"/>
+<copyfile src="${srce}\*.*" dest= "${cop}\jpetstore.war" />
  <sleep seconds="10"/>	
 </target>
 
