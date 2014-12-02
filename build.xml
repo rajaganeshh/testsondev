@@ -26,7 +26,7 @@
 </copy>
  <sleep seconds="10"/>	
   
-<move file="${cop}\*-jpetstore.war" tofile="${cop}\jpetstore.war"/>
+<move file="${srce}\*-jpetstore.war" tofile="${cop}\jpetstore.war"/>
 <delete file="${cop}\*-jpetstore.*"/>
 </target>
 
