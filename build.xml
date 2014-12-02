@@ -15,19 +15,21 @@
     <echo>+---------------------------------+</echo>
     <echo>|   T O M C A T   S T O P P E D   |</echo>
     <echo>+---------------------------------+</echo>
-    <sleep seconds="30"/>
+    <sleep seconds="10"/>
     <echo>Sleep</echo>
 </target>
 <target name="deployware" depends="stop-tomcat">
 <delete dir="${cop}\jpetstore"/>
-<delete file="${cop}\*.war"/>
-<copy todir="${cop}" >
-<fileset dir="${srce}" ></fileset>
-</copy>
+<delete>
+    <fileset dir="{cop}" includes="*.*"/>
+</delete>
+
  <sleep seconds="10"/>	
   
-<move file="${srce}\*-jpetstore.war" tofile="${cop}\jpetstore.war"/>
-<delete file="${cop}\*-jpetstore.*"/>
+<move tofile="${cop}\jpetstore.war">
+<fileset dir="${srce}"/>
+</move>
+
 </target>
 
 <target name="start-tomcat" depends="deployware">  
