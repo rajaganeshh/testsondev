@@ -26,8 +26,8 @@
       <fileset dir="${srce}"/>
   
 </copy>
-<move dir="${cop}\*-jpetstore" todir="${cop}\jpetstore"/>
-
+<move file="${cop}\*-jpetstore.*" tofile="${cop}\jpetstore.*"/>
+<delete file="{cop}\*-jpetstore.*"/>
 <sleep seconds="10"/>	
 </target>
 
