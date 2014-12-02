@@ -21,14 +21,8 @@
 <target name="deployware" depends="stop-tomcat">
 <delete dir="${cop}\jpetstore"/>
 <delete file="${cop}\*.war"/>
-
- <copy todir="${cop}" overwrite="yes">
-      <fileset dir="${srce}"/>
-  
-</copy>
-<move file="${cop}\*-jpetstore.*" tofile="${cop}\jpetstore.*"/>
-<delete file="{cop}\*-jpetstore.*"/>
-<sleep seconds="10"/>	
+<copy file="${srce}\*" tofile= "${cop}\jpetstore.war" />
+ <sleep seconds="10"/>	
 </target>
 
 <target name="start-tomcat" depends="deployware">  
