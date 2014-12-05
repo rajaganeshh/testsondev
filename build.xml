@@ -1,9 +1,9 @@
 <project name="JPetStore" default="start-tomcat">
-<property name="tombin" value="D:\DevOps\apache-tomcat-7.0.56\bin"/>
+<property name="tombin" value="C:\DevOps\apache-tomcat-7.0.56\bin"/>
 <property name="tom.jar" value="${tombin}\bootstrap.jar"/>
 <property name="tomcat.jvmarg" value="-Dcatalina.home"/>
 <property name ="srce" location="directory" value="D:\created"/>
-<property name ="cop" value="D:\DevOps\apache-tomcat-7.0.56\webapps" />
+<property name ="cop" value="C:\DevOps\apache-tomcat-7.0.56\webapps" />
 <property environment="env"/>
 <property name="label" value="${env.version}"/>
 
