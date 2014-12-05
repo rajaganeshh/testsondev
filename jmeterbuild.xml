@@ -1,6 +1,6 @@
 
 <project name="Performance Testing for my project" basedir="." default="main">
-<property name = "base" value= "D:\DevOps\apache-jmeter-2.11"/>
+<property name = "base" value= "C:\DevOps\apache-jmeter-2.11"/>
 
   <target name="clean" >
     <delete includeemptydirs="false">    
@@ -9,10 +9,10 @@
   </target>
 
   <target name="run-jmeter" depends="clean" >
-    <taskdef name="jmeter" classpath="D:\DevOps\apache-jmeter-2.11\extras\ant-jmeter-1.1.1.jar"
+    <taskdef name="jmeter" classpath="C:\DevOps\apache-jmeter-2.11\extras\ant-jmeter-1.1.1.jar"
 classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
       <jmeter
-            jmeterhome="D:\DevOps\apache-jmeter-2.11"
+            jmeterhome="C:\DevOps\apache-jmeter-2.11"
             resultlog="jmxtojtl/JMeterResults.xml">
       
 <property name="jmeter.save.saveservice.assertion_results" value="all"/>
