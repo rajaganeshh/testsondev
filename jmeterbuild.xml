@@ -1,5 +1,6 @@
 
 <project name="Performance Testing for my project" basedir="." default="main">
+<property name = "base" value= "D:\DevOps\apache-jmeter-2.11"/>
 
   <target name="clean" >
     <delete includeemptydirs="false">    
@@ -29,14 +30,14 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
 
     <!-- Use xalan copy from JMeter lib directory to ensure consistent processing with Java 1.4+ -->
     <path id="xslt.classpath">
-        <fileset dir="${basedir}\lib" includes="xalan*.jar"/>
-        <fileset dir="${basedir}\lib" includes="serializer*.jar"/>
+        <fileset dir="${base}\lib" includes="xalan*.jar"/>
+        <fileset dir="${base}\lib" includes="serializer*.jar"/>
     </path>
   <target name="create-reports" depends="run-jmeter">
     <xslt
             in="jmxtojtl\JMeterResults.xml"
             out="jmxtojtl\JMeterResult.html"
-            style="${basedir}\extras\jmeter-results-detail-report_21.xsl"/>
+            style="${base}\extras\jmeter-results-detail-report_21.xsl"/>
   </target> 
 
   <target name="main" depends="clean,run-jmeter,create-reports"/>
