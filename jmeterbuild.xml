@@ -3,16 +3,16 @@
 
   <target name="clean" >
     <delete includeemptydirs="false">    
-      <fileset dir="D:\DevOps\jmxtojtl" excludes="**/PerformanceCharts.html"/>
+      <fileset dir="jmxtojtl" excludes="**/PerformanceCharts.html"/>
     </delete>
   </target>
 
   <target name="run-jmeter" depends="clean" >
-    <taskdef name="jmeter" classpath="D:\DevOps\apache-jmeter-2.11\extras\ant-jmeter-1.1.1.jar"
+    <taskdef name="jmeter" classpath="C:\DevOps\apache-jmeter-2.11\extras\ant-jmeter-1.1.1.jar"
 classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
       <jmeter
-            jmeterhome="D:\DevOps\apache-jmeter-2.11"
-            resultlog="D:\DevOps\jmxtojtl\JMeterResults.xml">
+            jmeterhome="C:\DevOps\apache-jmeter-2.11"
+            resultlog="jmxtojtl\JMeterResults.xml">
       
 <property name="jmeter.save.saveservice.assertion_results" value="all"/>
         <property name="jmeter.save.saveservice.output_format" value="xml"/>
@@ -22,7 +22,7 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
     <jvmarg value="-Dproperty=value"/>
       <property name="request.threads" value="5"/>
       <property name="request.loop" value="10"/>
-	<testplans dir="D:\DevOps\jmeterjmx" includes="*.jmx"/>
+	<testplans dir="jmeterjmx" includes="*.jmx"/>
     </jmeter>
   </target>
 <property name="lib.dir" value="${jmeter-home}/lib"/>
@@ -34,24 +34,10 @@ classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
     </path>
   <target name="create-reports" depends="run-jmeter">
     <xslt
-            in="D:\DevOps\jmxtojtl\JMeterResults.xml"
-            out="D:\DevOps\jmxtojtl\JMeterResult.html"
+            in="jmxtojtl\JMeterResults.xml"
+            out="jmxtojtl\JMeterResult.html"
             style="${basedir}\extras\jmeter-results-detail-report_21.xsl"/>
   </target> 
-<property name ="desn" location="directory" value="C:\Program Files (x86)\Jenkins\jobs\PerformanceTestwithJMeter\workspace"/>
-<property name ="srcln1" value="D:\DevOps\jmxtojtl"/>
-<property name ="srcln" value="D:\DevOps\jmeterjmx"/>
-  <target name="copy-report" depends="create-reports">
-      <copy todir = "${desn}" overwrite="yes">
-      <fileset dir="${srcln}"/>
-      	
-	</copy>
-	<copy todir = "${desn}" overwrite="yes">
-      <fileset dir="${srcln1}" includes="*.html"/>
-      	
-	</copy>
-	<sleep seconds="5"/>
-  </target>
 
-  <target name="main" depends="clean,run-jmeter,create-reports,copy-report"/>
+  <target name="main" depends="clean,run-jmeter,create-reports"/>
 </project>
