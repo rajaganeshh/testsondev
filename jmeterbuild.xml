@@ -12,7 +12,7 @@
 classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
       <jmeter
             jmeterhome="D:\DevOps\apache-jmeter-2.11"
-            resultlog="\jmxtojtl\JMeterResults.xml">
+            resultlog="/jmxtojtl/JMeterResults.xml">
       
 <property name="jmeter.save.saveservice.assertion_results" value="all"/>
         <property name="jmeter.save.saveservice.output_format" value="xml"/>
