@@ -3,7 +3,7 @@
 
   <target name="clean" >
     <delete includeemptydirs="false">    
-      <fileset dir="jmxtojtl" excludes="**/PerformanceCharts.html"/>
+      <fileset dir="\jmxtojtl" excludes="**/PerformanceCharts.html"/>
     </delete>
   </target>
 
