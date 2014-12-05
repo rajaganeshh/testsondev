@@ -1,5 +1,5 @@
 
-<project name="Performance Testing for my project" basedir="D:\DevOps\apache-jmeter-2.11" default="main">
+<project name="Performance Testing for my project" basedir="." default="main">
 
   <target name="clean" >
     <delete includeemptydirs="false">    
