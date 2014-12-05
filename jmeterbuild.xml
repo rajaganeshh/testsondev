@@ -8,10 +8,10 @@
   </target>
 
   <target name="run-jmeter" depends="clean" >
-    <taskdef name="jmeter" classpath="C:\DevOps\apache-jmeter-2.11\extras\ant-jmeter-1.1.1.jar"
+    <taskdef name="jmeter" classpath="D:\DevOps\apache-jmeter-2.11\extras\ant-jmeter-1.1.1.jar"
 classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
       <jmeter
-            jmeterhome="C:\DevOps\apache-jmeter-2.11"
+            jmeterhome="D:\DevOps\apache-jmeter-2.11"
             resultlog="jmxtojtl\JMeterResults.xml">
       
 <property name="jmeter.save.saveservice.assertion_results" value="all"/>
